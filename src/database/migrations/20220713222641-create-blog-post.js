@@ -11,13 +11,30 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      content: {
+        type: Sequelize.STRING
+      },
+      title: {
+        type: Sequelize.STRING
+      },
+      userId:{
+      type: Sequelize.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      references:{
+        model:'User',
+        key:'id'
+      }
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        field: 'published'
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        field: 'updated'
       }
     });
   },

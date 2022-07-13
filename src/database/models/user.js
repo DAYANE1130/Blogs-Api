@@ -12,8 +12,8 @@
     });
   
     // User.associate = (models) => {
-    //   User.hasMany(models.Patient,{
-    //     foreignKey:'plan_id'})
+    //   User.hasMany(models.BlogPost,{
+    //     foreignKey:'id', as:userId})
     //   };
     return User;
     };
