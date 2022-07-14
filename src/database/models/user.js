@@ -7,13 +7,13 @@
     image:DataTypes.STRING,
     
     }, {
-    timestamps:false,
+    // timestamps:false,
     });
   
-    // User.associate = (models) => {
-    //   User.hasMany(models.BlogPost,{
-    //     foreignKey:'id', as:userId})
-    //   };
+    User.associate = (models) => {
+      User.hasMany(models.BlogPost,{
+        foreignKey:'userId'}) // OU id????? passa dos 2 jeitos
+      };
     return User;
     };
     
