@@ -6,7 +6,6 @@
     password:DataTypes.STRING,
     image:DataTypes.STRING,
     
-    
     }, {
     timestamps:false,
     });
