@@ -15,6 +15,7 @@ const userService = {
   // },
   create: async ({ email, password }) => {
     // antes de criar ele tem que verificar se esse email existe
+    
     const user = await User.create({ email, password });
     return user;
   },

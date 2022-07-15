@@ -1,4 +1,5 @@
 const userService = require('../service/userService');
+const { User } = require('../database/models');
 
 const userController = {
   // getAll: async (req,res) => {
@@ -13,11 +14,20 @@ const userController = {
   // },
   create: async (req, res) => {
   const { email, password } = req.body;
-  const user = await userService.create({ email, password });
-  if (!user) {
- return res.status(400).json({ message: 'Invalid fields' }); 
-}
-  return res.status(201).json(user);
+
+ if (!email || !password) {
+  return res.status(400).json({ message: 'Some required fields are missing' }); 
+ }
+ const findUser = await User.findOne({ where: { email } });
+
+ if (!findUser || findUser.password !== password) {
+   return res.status(400).json({ message: 'Invalid fields' }); 
+ }
+  await userService.create({ email, password });
+
+  return res.status(200).json({
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8',
+  });
   },
 };
 module.exports = userController;
