@@ -10,7 +10,7 @@ module.exports = {
       },
       displayName: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
@@ -22,7 +22,7 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       createdAt: {
         type: Sequelize.DATE,
