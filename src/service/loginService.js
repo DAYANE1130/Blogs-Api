@@ -18,13 +18,11 @@ const loginService = {
   //   return idBook;
   // },
   create: async ({ email, password }) => {
-const findUser = await User.findOne({ where: { email } });
-if (!findUser || findUser.password !== password) return false; 
-await User.create({ email, password });
-const token = jwt.sign({ email }, secret,
-     { expiresIn: '30d',
-      algorithm: 'HS256' });
-return { token };
+    const findUser = await User.findOne({ where: { email } });
+    if (!findUser || findUser.password !== password) return false;
+    await User.create({ email, password });
+    const token = jwt.sign({ email }, secret, { expiresIn: '30d', algorithm: 'HS256' });
+    return { token };
   },
 };
 
