@@ -1,4 +1,8 @@
+const jwt = require('jsonwebtoken');
 const { User } = require('../database/models');
+require('dotenv').config();
+
+const secret = process.env.JWT_SECRET;
 // const { Book } = require('../models/book'); se importar com  / book no final não reconhece a pasta e não retorna nada
 const userService = {
   // getAll: async () => {
@@ -14,10 +18,14 @@ const userService = {
   //   return idBook;
   // },
   create: async ({ email, password }) => {
-    // antes de criar ele tem que verificar se esse email existe
-    
-    const user = await User.create({ email, password });
-    return user;
+   await User.create({ email, password });
+    const token = jwt.sign(
+      { email },
+      secret,
+     { expiresIn: '7d',
+      algorithm: 'HS256' },
+);
+    return token;
   },
 };
 
