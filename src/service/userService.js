@@ -19,10 +19,17 @@ const userService = {
     return { token };
   },
   getAll: async () => {
-    const book = await User.findAll({
+    const users = await User.findAll({
       attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
     });
-    return book;
+    return users;
+  },
+  getById: async (id) => {
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
+    });
+    if (!user) return false;
+    return user;
   },
 };
 
