@@ -15,5 +15,9 @@ const userController = {
       return res.status(500).json({ message: 'Internal Error' });
     }
   },
+  getAll: async (req, res) => {
+    const book = await userService.getAll();
+    res.status(200).json(book);
+  },
 };
 module.exports = userController;

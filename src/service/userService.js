@@ -18,6 +18,12 @@ const userService = {
     });
     return { token };
   },
+  getAll: async () => {
+    const book = await User.findAll({
+      attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
+    });
+    return book;
+  },
 };
 
 module.exports = userService;
