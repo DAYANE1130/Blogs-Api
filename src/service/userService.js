@@ -9,11 +9,13 @@ const userService = {
     console.log('cguei ate aqui');
     const findUser = await User.findOne({ where: { email } });
     if (findUser) return false;
-
-  const user = await User.create({ displayName, email, password, image });
-  const { id } = user;
-  console.log(id);
-    const token = jwt.sign({ id, email }, secret, { expiresIn: '30d', algorithm: 'HS256' });
+    const user = await User.create({ displayName, email, password, image });
+    const { id } = user;
+    console.log(id);
+    const token = jwt.sign({ data: id, email }, secret, {
+      expiresIn: '30d',
+      algorithm: 'HS256',
+    });
     return { token };
   },
 };
