@@ -26,24 +26,26 @@ const postCategoryService = {
     });
     return post;
   },
-  // getAllPost: async () => {
-  //   const post = await Category.findAll({
-  //     // aqui eu chamo alguma das duas models que fazem parte do relacionamento
-  //     attributes: { exclude: ['name', 'id'] },
-  //     // through: { attributes: [] },
-  //     include: {
-  //       model: BlogPost,
-  //       as: 'BlogPost',
-  //       through: { attributes: [] },
-  //       include: {
-  //         model: User,
-
-  //       },
-
-  //     },
-  //   });
-  //   return post;
-  // },
+  getPostById: async (id) => {
+    const post = await BlogPost.findByPk(id, {
+      // aqui eu chamo alguma das duas models que fazem parte do relacionamento
+    
+      // through: { attributes: [] },
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: { exclude: ['password'] },
+        },
+        {
+          model: Category,
+          as: 'categories',
+          through: { attributes: [] },
+        },
+      ],
+    });
+    return post;
+  },
 };
 
 module.exports = postCategoryService;
