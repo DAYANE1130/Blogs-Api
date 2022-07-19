@@ -9,12 +9,14 @@ const createBlogPost = (sequelize, DataTypes) => {
       published: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
       updated: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
     },
-    { timestamps: false }
+    { timestamps: false,
+     }
   );
 
   BlogPost.associate = (models) => {
     BlogPost.belongsTo(models.User, {
       foreignKey: 'userId',
+      as:'user'
     });
   };
   return BlogPost;

@@ -16,6 +16,7 @@ const createUser = (sequelize, DataTypes) => {
   User.associate = (models) => {
     User.hasMany(models.BlogPost, {
       foreignKey: 'userId',
+      as: 'BlogPost' // para quem vou fazer a junção e não pra que é o principal
     }); // OU id????? passa dos 2 jeitos
   };
   return User;
