@@ -8,7 +8,7 @@ module.exports = {
         allowNull: false,
         references:{
           model:'BlogPosts', // aqui é o nome da tabela
-          key:'id'
+          key:'id' //postId
         },
         onUpdate:'CASCADE',
         onDelete:'CASCADE',
@@ -21,19 +21,13 @@ module.exports = {
         allowNull: false,
         references:{
           model:'Categories',
-          key:'id'
+          key:'id' //categoryId
         },
         onUpdate:'CASCADE',
         onDelete:'CASCADE',
         primaryKey: true,
         
       },
-      createdAt: {
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        type: Sequelize.DATE
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {
