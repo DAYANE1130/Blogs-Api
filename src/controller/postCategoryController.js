@@ -29,12 +29,12 @@ const postCategoryController = {
     const { id } = req.payload;
     const { title, content, categoryIds } = req.body;
     // const [a] = categoryIds;
-    console.log('payload control', id);
-    console.log('params control', req.body);
+    // console.log('payload control', id);
+    // console.log('params control', req.body);
     try {
       const post = await postCategoryService
-      .create({ title, content, userId: req.payload.id, categoryIds });
-      console.log('post control', post);
+      .create({ userId: id, title, content, categoryIds });
+      // console.log('post control', post);
       if (!post) return res.status(400).json({ message: '"categoryIds" not found' }); 
       return res.status(201).json(post);
     } catch (error) {
