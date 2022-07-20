@@ -6,5 +6,6 @@ const router = Router();
 
 router.get('/', validateToken.verifyToken, postCategoryController.getAllPost);
 router.get('/:id', validateToken.verifyToken, postCategoryController.getPostById);
+router.post('/', validateToken.verifyToken, postCategoryController.create);
 
 module.exports = router;

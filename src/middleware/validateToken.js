@@ -14,7 +14,7 @@ const verifyToken = async (req, res, next) => {
     // const user = await User.findOne({ where: { payload } });
     // console.log('payload', user);
     req.payload = payload;
-    // console.log('reqqq.payload', req.payload = payload);
+    console.log('reqqq.payload', req.payload = payload);
 
     next();
   } catch (error) {
