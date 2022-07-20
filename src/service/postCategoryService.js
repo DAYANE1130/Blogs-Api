@@ -47,7 +47,7 @@ const postCategoryService = {
     });
     return post;
   },
-  create: async ({ title, content, categoryIds }) => {
+  create: async ({ id, title, content, categoryIds }) => {
     //   console.log('entro service', id);
     // OUTRA FORMA DE RESOLVER O FINDALL COM HOFS:
     //  // como consigo pegar a lista de categorias do BANCO ?  -- Category
@@ -65,7 +65,7 @@ const postCategoryService = {
     });
     if (find.length < 1) return false;
 
-    const post = await BlogPost.create({ title, content, categoryIds });
+    const post = await BlogPost.create({ userId: id, title, content, categoryIds });
     // console.log('post criado', post.dataValues);
     return post;
   },
