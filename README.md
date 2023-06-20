@@ -83,9 +83,9 @@ A seguir estão os principais endpoints disponíveis nesta API:
 - - `GET /users`: Busca todos os usuários.
 - - `POST /login`: Realiza login
 - - `POST /post`: Cria um novo post. Requer autenticação.
-- `GET /post`: Retorna todos os posts.Requer autenticação.
-- `POST /categories`: Cria um nova categoria. Requer autenticação.
-- `GET /categories`: Retorna todas as categorias . Requer autenticação.
+- - `GET /post`: Retorna todos os posts.Requer autenticação.
+- - `POST /categories`: Cria um nova categoria. Requer autenticação.
+- - `GET /categories`: Retorna todas as categorias . Requer autenticação.
 
 
 
