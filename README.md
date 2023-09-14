@@ -69,7 +69,13 @@ Instruções Trybe - para configurar variavéis de ambiente
   Esta variável de ambiente deverá ser utilizada tanto para criar o token quanto para verificá-lo. Os teste locais e o avaliador vão utilizar a variável de ambiente `JWT_SECRET` para testar os requisitos
 ## Uso
 
-1. Inicie o servidor executando o seguinte comando:
+4. Criar
+Execute o comando para criar o banco de dados e as tabelas:
+
+`npx sequelize db:create`
+`npx sequelize db:migrate`
+
+5. Inicie o servidor executando o seguinte comando:
 
    ```npm start```
 
