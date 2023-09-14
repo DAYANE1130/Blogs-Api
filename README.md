@@ -102,13 +102,13 @@ o corpo da requisição contendo o título e o conteúdo do post:
 
 JSON
 
-Copiar código
+`
 {
   "title": "Título do Post",
   "content": "Conteúdo do Post"
   "categoryIds": [2]
 }
-
+`
 
 
 
