@@ -79,7 +79,8 @@ Execute o comando para criar o banco de dados e as tabelas:
 
    ```npm start```
 
-   
+6. Testar uma API
+A API estará rodando em http://localhost:3000. Você pode usar ferramentas como Postman ou Insomnia para testar os endpoints.
 
 ## Endpoints
 
@@ -93,7 +94,18 @@ A seguir estão os principais endpoints disponíveis nesta API:
 - - `POST /categories`: Cria um nova categoria. Requer autenticação.
 - - `GET /categories`: Retorna todas as categorias . Requer autenticação.
 
+Exemplo de uso
+Criar um Novo Post
+Faça uma requisição POSTpara http://localhost:3000/post o corpo da requisição contendo o título e o conteúdo do post:
 
+JSON
+
+Copiar código
+{
+  "title": "Título do Post",
+  "content": "Conteúdo do Post"
+  "categoryIds": [2]
+}
 
 
 
